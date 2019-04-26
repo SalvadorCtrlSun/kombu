@@ -63,7 +63,7 @@
 :release-date: 2016-03-03 05:30 P.M PST
 :release-by: Ask Solem
 
-- Qpid: Adds async error handling.
+- Qpid: Adds asynchronous error handling.
 
     Contributed by Brian Bouterse.
 
@@ -376,7 +376,7 @@
 :release-date: 2014-09-04 03:00 P.M UTC
 :release-by: Ask Solem
 
-- kombu.async: Min. delay between waiting for timer was always increased to
+- kombu.asynchronous: Min. delay between waiting for timer was always increased to
   one second.
 
 - Fixed bug in itermessages where message is received after the with
@@ -447,7 +447,7 @@
 :release-date: 2014-06-02 06:00 P.M UTC
 :release-by: Ask Solem
 
-- A typo introduced in 3.0.17 caused kombu.async.hub to crash (Issue #360).
+- A typo introduced in 3.0.17 caused kombu.asynchronous.hub to crash (Issue #360).
 
 .. _version-3.0.17:
 
@@ -458,7 +458,7 @@
 
 - ``kombu[librabbitmq]`` now depends on librabbitmq 1.5.2.
 
-- Async: Event loop now selectively removes file descriptors for the mode
+- asynchronous: Event loop now selectively removes file descriptors for the mode
   it failed in, and keeps others (e.g read vs write).
 
     Fix contributed by Roger Hu.
@@ -536,7 +536,7 @@
 
 - MongoDB: Fixes Python 3 compatibility.
 
-- Async: select: Ignore socket errors when attempting to unregister handles
+- asynchronous: select: Ignore socket errors when attempting to unregister handles
   from the loop.
 
 - Pidbox: Can now be configured to use a serializer other than json,
@@ -569,7 +569,7 @@
 
     Fix contributed by Alex Koshelev.
 
-- **Async**: Fixed bug in lax semaphore implementation where in
+- **asynchronous**: Fixed bug in lax semaphore implementation where in
   some usage patterns the limit was not honored correctly.
 
     Fix contributed by Ionel Cristian Mărieș.
@@ -743,7 +743,7 @@
 - Redis: The map of Redis error classes are now exposed at the module level
   using the :func:`kombu.transport.redis.get_redis_error_classes` function.
 
-- Async: ``Hub.close`` now sets ``.poller`` to None.
+- asynchronous: ``Hub.close`` now sets ``.poller`` to None.
 
 .. _version-3.0.8:
 
@@ -797,7 +797,7 @@
 
 - Timer: No longer attempts to hash keyword arguments (Issue #275).
 
-- Async: Did not account for the long type for file descriptors.
+- asynchronous: Did not account for the long type for file descriptors.
 
     Fix contributed by Fabrice Rabaute.
 
@@ -984,10 +984,10 @@
              same security implications as pickle, but Kombu uses the
              :func:`yaml.safe_load` function which is not known to be affected.
 
-- kombu.async: Experimental event loop implementation.
+- kombu.asynchronous: Experimental event loop implementation.
 
     This code was previously in Celery but was moved here
-    to make it easier for async transport implementations.
+    to make it easier for asynchronous transport implementations.
 
     The API is meant to match the Tulip API which will be included
     in Python 3.4 as the ``asyncio`` module.  It's not a complete
@@ -3111,7 +3111,7 @@ Fixes
 * Redis: Can now perform channel operations while the channel is in
   BRPOP/LISTEN mode (Issue #35).
 
-    Also the async BRPOP now times out after 1 second, this means that
+    Also the asynchronous BRPOP now times out after 1 second, this means that
     cancelling consuming from a queue/starting consuming from additional queues
     has a latency of up to one second (BRPOP does not support subsecond
     timeouts).

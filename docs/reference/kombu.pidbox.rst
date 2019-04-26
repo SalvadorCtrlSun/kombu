@@ -43,7 +43,7 @@
 
     .. code-block:: python
 
-        >>> mailbox.cast("reload_schedule")   # cast is async.
+        >>> mailbox.cast("reload_schedule")   # cast is asynchronous.
         >>> info = celerybeat.call("connection_info", timeout=1)
 
     Mailbox
